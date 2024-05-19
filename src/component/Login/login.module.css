@@ -1,0 +1,38 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 5vw 10vw 2vw 0;
+    width: 60%;
+}
+
+.inputContinaer{
+   padding: 20px 0px;
+   display: flex;
+   justify-content: right;
+}
+
+.label{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: rgba(71, 68, 68, 1);
+}
+
+.input{
+    background-color: rgba(244, 244, 244, 1);
+    border-radius: 10px 10px 0px 0px;
+    border: none;
+    width: 60%;
+    margin-left: 3rem;
+    padding: .6rem;
+}
+
+.error{
+    border: 1px solid rgba(214, 0, 0, 1)
+}
+
+.error::placeholder{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: rgba(214, 0, 0, 1)
+}
