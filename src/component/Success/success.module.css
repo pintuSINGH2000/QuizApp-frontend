@@ -1,0 +1,38 @@
+
+.container{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 60px 0px;
+}
+
+.quizHeader{
+    font-size: 40px;
+}
+
+.quizCard{
+    flex-direction: column;
+    gap: 10px;
+}
+
+.score{
+    color: rgba(96, 184, 75, 1);
+}
+
+.poll{
+    font-size: 74px;
+    padding: 60px 130px;
+    line-height: 111px;
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        height: 95vh;
+        padding: 0px;
+    }
+    .poll{
+        font-size: 34px;
+        line-height: 51px;
+        padding:0px;
+    }
+}

@@ -1,0 +1,64 @@
+.container{
+    padding: 4vw 1.5vw 2vw 1.5vw;
+}
+
+.quizName{
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 15px;
+    color: rgba(159, 159, 159, 1);
+    outline: none;
+}
+
+.quizName::placeholder{
+    color: rgba(159, 159, 159, 1);
+}
+.quizType{
+    padding: 40px 10px 80px 10px;
+}
+
+.font{
+    color: rgba(159, 159, 159, 1);
+}
+
+.type{
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.btn{
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    width: 180px;
+    height: 46px;
+    font-size: 20px;
+}
+
+.green{
+   background-color: rgba(96, 184, 75, 1);
+   color: rgba(255, 255, 255, 1);
+}
+
+.normal{
+    background-color: rgba(255, 255, 255, 1);
+    color:   rgba(159, 159, 159, 1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+}
+
+.footer{
+    padding: 10px 10px;
+}
+
+.btns{
+    width: 40%;
+    border-radius: 7px;
+    font-size: 21px;
+    height: 46px;
+}
+
+.error{
+    padding: 10px;
+    color: red;
+    font-size: 16px;
+}

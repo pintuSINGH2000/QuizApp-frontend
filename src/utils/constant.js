@@ -1,0 +1,1 @@
+export const DEFAULT_TIMER = ["OFF","5","10"]

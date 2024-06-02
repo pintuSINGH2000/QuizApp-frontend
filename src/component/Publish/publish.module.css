@@ -1,0 +1,28 @@
+.container{
+    flex-direction: column;
+    padding: 40px 10px;
+}
+
+.h1{
+    font-size: 39px;
+    padding: 7% 20% 0% 20%;
+}
+
+.link{
+    background: rgba(237, 237, 237, 1);
+    width: 88%;
+    font-size: 24px;
+    text-align: left;
+    padding: 8px 30px;
+    margin: 20px 10px 20px 28px;
+    user-select: text;
+    cursor: text;
+}
+
+.share{
+    width: 35%;
+    height: 2.5rem;
+    font-size: 18px;
+    background-color: rgba(96, 184, 75, 1);
+    margin: 20px 0px;
+}

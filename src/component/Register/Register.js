@@ -20,13 +20,11 @@ const Register = forwardRef(({ onSubmit }, ref) => {
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const nameRegex = /^[A-Za-z\s]+$/;
-  const passwordRegex =  /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}$/; 
+  const passwordRegex =  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/; 
   const [confirmPassword, setConfirmPassword] = useState("");
   
   const handleChange = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
-    console.log(name,value);
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -34,7 +32,6 @@ const Register = forwardRef(({ onSubmit }, ref) => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData);
     // Simple client-side validation
     let flag=true;
     if (formData.name.trim().length===0 || !nameRegex.test(formData.name.trim())) {
@@ -65,54 +62,53 @@ const Register = forwardRef(({ onSubmit }, ref) => {
      }else{
         setFormError((prev) => ({...prev,"confirmPassword":""}));
      }
-     console.log(formError);
      if(flag){
         onSubmit(formData);
      }
   };
   return (
     <div className={style.container}>
-      <div className={style.inputContinaer}>
-        <label htmlFor="name"  className={style.label}>Name </label>
+      <div className={`${style.inputContinaer} flexbox-center`}>
+        <label htmlFor="name"  className={`${style.label} poppins-600`}>Name </label>
         <input
           type="text"
           id="name"
           name="name"
-          className={`${formError.nameErr&&formData.name.length===0?style.error:style.input}`}
+          className={`${formError.nameErr&&formData.name.length===0&&style.error} border-none ${style.input}`}
           value={formData.name}
           onChange={handleChange}
           placeholder={formError.nameErr}
         />
       </div>
-      <div className={style.inputContinaer}>
-        <label htmlFor="email" className={style.label}>Email </label>
+      <div className={`${style.inputContinaer} flexbox-center`}>
+        <label htmlFor="email" className={`${style.label} poppins-600`}>Email </label>
         <input
           type="email"
           id="email"
           name="email"
-          className={`${formError.emailErr&&formData.email.length===0?style.error:style.input}`}
+          className={`${formError.emailErr&&formData.email.length===0 && style.error} border-none ${style.input}`}
           value={formData.email}
           onChange={handleChange}
           placeholder={formError.emailErr}
         />
       </div>
-      <div className={style.inputContinaer} >
-        <label htmlFor="password" className={style.label}>Password </label>
+      <div className={`${style.inputContinaer} flexbox-center`} >
+        <label htmlFor="password" className={`${style.label} poppins-600`}>Password </label>
         <input
           type="password"
           name="password"
-          className={`${formError.passwordErr&&formData.password.length===0?style.error:style.input}`}
+          className={`${formError.passwordErr&&formData.password.length===0&&style.error} border-none ${style.input}`}
           value={formData.password}
           onChange={handleChange}
           placeholder={formError.passwordErr}
         />
       </div>
-      <div className={style.inputContinaer}>
-        <label htmlFor="confirmPassord" className={style.label}>Confirm Password </label>
+      <div className={`${style.inputContinaer} flexbox-center`}>
+        <label htmlFor="confirmPassord" className={`${style.label} poppins-600`}>Confirm Password </label>
         <input
           type="password"
           id="confirmPassord"
-          className={`${formError.confirmPasswordErr&&confirmPassword.length===0?style.error:style.input}`}
+          className={`${formError.confirmPasswordErr&&confirmPassword.length===0&&style.error} border-none ${style.input}`}
           value={confirmPassword}
           placeholder={formError.confirmPasswordErr}
           onChange={(e) => setConfirmPassword(e.target.value)}
