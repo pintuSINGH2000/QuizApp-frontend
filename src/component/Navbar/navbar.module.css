@@ -17,7 +17,7 @@
 .navigation{
     display: flex;
     flex-direction: column;
-    gap: 41px;
+    gap: 60px;
     font-size: 20px;
 }
 

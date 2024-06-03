@@ -44,7 +44,7 @@ const QuestionAnalysis = () => {
           <div className={styles.left}>{analysisData.quizName} Question Analysis</div>
           <div className={styles.right}>
             <div>
-              Created On : {moment.utc(analysisData.createAt).format("Do MMM, YYYY")}
+              Created On : {moment.utc(analysisData.createdAt).format("Do MMM, YYYY")}
             </div>
             <div>Impression : {analysisData.impression}</div>
           </div>

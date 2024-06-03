@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// process.env.REACT_APP_BACKEND_URL
+const backendUrl = "http://127.0.0.1:8080/api/v1/";
 
 
 export const createQuiz = async (quizData) => {
