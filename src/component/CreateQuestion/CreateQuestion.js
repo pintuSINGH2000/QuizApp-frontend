@@ -6,6 +6,7 @@ import { Modal } from "antd";
 import Publish from "../Publish/Publish";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { ToastContainer, Zoom, toast } from "react-toastify";
+import Spinner from "../Spinner/Spinner";
 
 const CreateQuestion = ({
   quizName,
@@ -20,6 +21,7 @@ const CreateQuestion = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [quizId, setQuizId] = useState();
   const [optionType, setOptionType] = useState(1);
+  const [processing,setProcessing] = useState(false);
   const [questions, setQuestions] = useState([
     {
       questionName: "",
@@ -94,6 +96,8 @@ const CreateQuestion = ({
   };
 
   const handleSubmit = async () => {
+    if(processing) return ;
+    setProcessing(true);
     const errors = [];
 
     questions.forEach((question, qIndex) => {
@@ -152,6 +156,7 @@ const CreateQuestion = ({
             }
       }
       setQuestionError(errors);
+      setProcessing(false);
       return;
     }
     setQuestionError([{}]);
@@ -165,6 +170,7 @@ const CreateQuestion = ({
         cancel();
         reset();
       }
+      setProcessing(false);
     } else {
       const res = await createQuiz({
         quizName: quizName,
@@ -178,6 +184,7 @@ const CreateQuestion = ({
         cancel();
         setIsModalOpen(true);
       }
+      setProcessing(false);
     }
   };
 
@@ -251,7 +258,7 @@ const CreateQuestion = ({
           className={`${styles.green} white ${styles.btns} poppins-600 border-none cursor-pointer`}
           onClick={handleSubmit}
         >
-          {isUpdating?"Update":"Create"}{quizType === 1? " Quiz" : " Poll" }
+          {processing?<Spinner />:(isUpdating?"Update":"Create") + (quizType === 1? " Quiz" : " Poll" )}
         </button>
       </div>
       <Modal

@@ -25,6 +25,7 @@ const Analytics = () => {
   const [quizToUpdate, setQuizToUpdate] = useState(null);
   const [quizTypeToUpdate, setQuizTypeToUpdate] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [deleteProcessing,setDeleteProcessing] = useState(false);
   const homepageUrl = window?.location?.origin;
   const navigate = useNavigate();
 
@@ -79,12 +80,15 @@ const Analytics = () => {
   };
 
   const handleCloseModalConfirm = async () => {
+    if(deleteProcessing) return;
+    setDeleteProcessing(true);
     const res = await deleteQuiz(quizToDelete);
     if (res) {
       setQuizzes(quizzes.filter((quiz) => quiz._id !== quizToDelete));
     }
     setQuizToDelete(null);
     setIsCloseModalOpen(false);
+    setDeleteProcessing(false);
   };
 
   const handleCloseModalCancel = () => {
